@@ -1,15 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
-        {{ category.name }} <span class="fa {{ category.iconKey }}"></span>
-        <div>
-            {% for fortuneCookie in category.fortuneCookies %}
-                <div>
-                {{ fortuneCookie.fortune }}
-                ({{ fortuneCookie.numberPrinted }} printed since {{ fortuneCookie.createdAt|date('M jS Y') }})
-                </div>
-            {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-md-offset-2">
+                <table class="table table-bordered">
+                    <thead class="header-bkgrnd">
+                        <tr>
+                            <th>
+                               <span class="fa {{ category.iconKey }}"></span> {{ category.name }} 
+                            </th>
+                            <th>
+                               Printed History
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                {% for fortuneCookie in category.fortuneCookies %}
+                <tr>
+                    <td>
+                        {{ fortuneCookie.fortune }}
+                   </td>
+                    <td>
+                       {{ fortuneCookie.numberPrinted }} printed since {{ fortuneCookie.createdAt|date('M jS Y') }}
+                   </td>
+                </tr>
+                {% endfor %}
+                    </tbody>
+                 </table>
+                 <i class="fa fa-angle-double-left"></i> <a class="fortune-black" href="{{ path('homepage') }}">More Fortune</a>
+            </div>
         </div>
     </div>
 {% endblock %}

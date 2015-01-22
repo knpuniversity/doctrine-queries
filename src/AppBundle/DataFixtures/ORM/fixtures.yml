@@ -6,7 +6,7 @@ AppBundle\Entity\Category:
         name: Lunch
         iconKey: fa-spoon
     category_proverb:
-        name: Proverb
+        name: Proverbs
         iconKey: fa-quote-left
     category_pets:
         name: Pets
@@ -15,7 +15,7 @@ AppBundle\Entity\Category:
         name: Love
         iconKey: fa-heart
     category_lucky_number:
-        name: Lucky #
+        name: Lucky Number
         iconKey: fa-bug
 
 AppBundle\Entity\FortuneCookie:
