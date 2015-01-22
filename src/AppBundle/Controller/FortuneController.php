@@ -13,11 +13,11 @@ class FortuneController extends Controller
      */
     public function homepageAction()
     {
-        /** @var Category[] $categories */
-        $categories = $this->getDoctrine()
+        $categoryRepository = $this->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Category')
-            ->findAll();
+            ->getRepository('AppBundle:Category');
+
+        $categories = $categoryRepository->findAll();
 
         return $this->render('fortune/homepage.html.twig',[
             'categories' => $categories
@@ -29,10 +29,11 @@ class FortuneController extends Controller
      */
     public function showCategoryAction($id)
     {
-        $category = $this->getDoctrine()
+        $categoryRepository = $this->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Category')
-            ->find($id);
+            ->getRepository('AppBundle:Category');
+
+        $category = $categoryRepository->find($id);
 
         if (!$category) {
             throw $this->createNotFoundException();
