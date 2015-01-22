@@ -1,0 +1,19 @@
+title:  Go Pro with Doctrine Queries
+summary: |
+    
+    You already know how to query with SQL, so learning how to do complex
+    queries with Doctrine shoudl *not* give you a headache. In this series,
+    we'll learn the language Doctrine speaks (DQL), as well as the query
+    builder object, how to use complex query features and even how to run
+    good ol' fashioned raw SQL queries with Doctrine. Because hey, sometimes
+    simplicity rules :).
+
+illustration: doctrine-queries.png
+
+chapters:
+    dql:
+        is_free:    true
+    query-builder:
+        is_free:    true
+    and-where-or-where:
+        is_free:    false
