@@ -3,7 +3,7 @@
 {% block body %}
     <div>
     {% for category in categories %}
-        <div>
+        <div class="">
             <a href="{{ path('category_show', {'id': category.id}) }}">
                 {{ category.name }} <span class="fa {{ category.iconKey }}"></span> ({{ category.fortuneCookies|length }})
             </a>

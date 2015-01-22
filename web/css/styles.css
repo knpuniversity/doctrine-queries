@@ -1,0 +1,12 @@
+.navbar-like {
+    width: 100%;
+    height: 50px;
+    background-color: red;
+    margin-bottom: 100px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    padding-top: 5px;
+}

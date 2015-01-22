@@ -25,6 +25,8 @@ class AppFixtures extends DataFixtureLoader
         return $possibilities[$key];
     }
 
+    // Many fortunes provided by: http://www.huffingtonpost.com/2012/11/10/29-fortune-cookies-that-will-surprise-you_n_2109491.html
+
     private $fortunes = [
         'job' => [
             'It would be best to maintain a low profile for now.',
