@@ -8,18 +8,18 @@ for the KnpUniversity lesson called:
 
 Project Setup:
 
-1) [Download Composer](https://getcomposer.org/)
+1) Configure `parameters.yml`:
 
-2) Install the vendor libraries
+Copy `app/config/parameters.yml.dist` to `app/config/parameters.yml` and
+configure any of the `database_` options.
+
+2) [Download Composer](https://getcomposer.org/)
+
+3) Install the vendor libraries
 
 ```
 php composer.phar install
 ```
-
-3) Configure parameters.yml~
-
-Copy `app/config/parameters.yml.dist` to `app/config/parameters.yml` and
-configure any of the `database_` options.
 
 4) Create your database and load some fixtures!
 
