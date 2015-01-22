@@ -33,6 +33,7 @@ class FortuneController extends Controller
             ->getManager()
             ->getRepository('AppBundle:Category')
             ->find($id);
+
         if (!$category) {
             throw $this->createNotFoundException();
         }

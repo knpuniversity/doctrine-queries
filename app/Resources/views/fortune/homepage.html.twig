@@ -3,16 +3,10 @@
 {% block body %}
     <div>
     {% for category in categories %}
-        <a href="{{ path('category_show', {'id': category.id}) }}">
-            {{ category.name }} <span class="fa {{ category.iconKey }}"></span>
-        </a>
         <div>
-            {% for fortuneCookie in category.fortuneCookies %}
-                <div>
-                {{ fortuneCookie.fortune }}
-                ({{ fortuneCookie.numberPrinted }} printed since {{ fortuneCookie.createdAt|date('M jS Y') }})
-                </div>
-            {% endfor %}
+            <a href="{{ path('category_show', {'id': category.id}) }}">
+                {{ category.name }} <span class="fa {{ category.iconKey }}"></span> ({{ category.fortuneCookies|length }})
+            </a>
         </div>
     {% endfor %}
     </div>

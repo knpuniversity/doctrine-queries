@@ -27,18 +27,18 @@ AppBundle\Entity\FortuneCookie:
     fortune_job{1..10} (extends fortune_base):
         category: @category_job
         fortune: <randomFortune('job')>
-    fortune_lunch{1..10} (extends fortune_base):
+    fortune_lunch{1..6} (extends fortune_base):
         category: @category_lunch
         fortune: <randomFortune('lunch')>
-    fortune_proverb{1..10} (extends fortune_base):
+    fortune_proverb{1..5} (extends fortune_base):
         category: @category_proverb
         fortune: <randomFortune('proverb')>
-    fortune_pets{1..10} (extends fortune_base):
+    fortune_pets{1..11} (extends fortune_base):
         category: @category_pets
         fortune: <randomFortune('pets')>
-    fortune_love{1..10} (extends fortune_base):
+    fortune_love{1..15} (extends fortune_base):
         category: @category_love
         fortune: <randomFortune('love')>
-    fortune_lucky_number{1..10} (extends fortune_base):
+    fortune_lucky_number{1..30} (extends fortune_base):
         category: @category_lucky_number
         fortune: <randomFortune('lucky_number')>
