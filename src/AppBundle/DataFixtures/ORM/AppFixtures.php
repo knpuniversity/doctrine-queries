@@ -42,7 +42,6 @@ class AppFixtures extends DataFixtureLoader
             'A conclusion is simply the place where you got tired of thinking.',
             'Cookie said: "You really crack me up"',
             'When you squeeze an orange, orange juice comes out. Because that\'s what\'s inside.',
-            ''
         ],
         'pets' => [
             'There\'s no such thing as an ordinary cat',
