@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+    {% for category in categories %}
+        {{ category.name }} <span class="fa {{ category.iconKey }}"></span>
+        <div>
+            {% for fortuneCookie in category.fortuneCookies %}
+                <div>
+                {{ fortuneCookie.fortune }}
+                ({{ fortuneCookie.numberPrinted }} printed since {{ fortuneCookie.createdAt|date('M jS Y') }})
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

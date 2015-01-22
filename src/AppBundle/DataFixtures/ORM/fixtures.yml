@@ -1,0 +1,43 @@
+AppBundle\Entity\Category:
+    category_job:
+        name: Job
+        iconKey: fa-dollar
+    category_lunch:
+        name: Lunch
+        iconKey: fa-spoon
+    category_proverb:
+        name: Proverb
+        iconKey: fa-quote-left
+    category_pets:
+        name: Pets
+        iconKey: fa-paw
+    category_love:
+        name: Love
+        iconKey: fa-heart
+    category_lucky_number:
+        name: Lucky #
+        iconKey: fa-bug
+
+AppBundle\Entity\FortuneCookie:
+    fortune_base (template):
+        createdAt: <dateTimeBetween('-5 years', 'now')>
+        numberPrinted: <numberBetween(100, 99999)>
+
+    fortune_job{1..10} (extends fortune_base):
+        category: @category_job
+        fortune: <randomFortune('job')>
+    fortune_lunch{1..10} (extends fortune_base):
+        category: @category_lunch
+        fortune: <randomFortune('lunch')>
+    fortune_proverb{1..10} (extends fortune_base):
+        category: @category_proverb
+        fortune: <randomFortune('proverb')>
+    fortune_pets{1..10} (extends fortune_base):
+        category: @category_pets
+        fortune: <randomFortune('pets')>
+    fortune_love{1..10} (extends fortune_base):
+        category: @category_love
+        fortune: <randomFortune('love')>
+    fortune_lucky_number{1..10} (extends fortune_base):
+        category: @category_lucky_number
+        fortune: <randomFortune('lucky_number')>

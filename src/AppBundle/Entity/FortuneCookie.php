@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * FortuneCookie
  *
- * @ORM\Table()
+ * @ORM\Table(name="fortune_cookie")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\FortuneCookieRepository")
  */
 class FortuneCookie
