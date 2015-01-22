@@ -24,6 +24,12 @@
     </head>
     <body>
         <div class="navbar-like">
+            <form class="navbar-form" role="search" style="position: absolute; right: 20px;">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search ..." name="q">
+                </div>
+            </form>
+
             <a href="{{ path ('homepage') }}">
                 <img class="logo center-block" src={{ asset('images/fortune-logo.png') }}>
             </a>
