@@ -1,0 +1,35 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "dql-create-empty-repository-method",
+            "name": "DQL: Create empty repository method",
+            "description": null
+        },
+        {
+            "id": "dql-basic-dql-query",
+            "name": "DQL: Basic DQL Query",
+            "description": null
+        },
+        {
+            "id": "dql-ordering-by-name",
+            "name": "DQL: Ordering by name",
+            "description": null
+        },
+        {
+            "id": "dql-printing-sql",
+            "name": "DQL: Printing SQL",
+            "description": null
+        },
+        {
+            "id": "dql-removing-debug",
+            "name": "DQL: Removing debug",
+            "description": null
+        }
+    ],
+    "sha": "0c47c1752bac8a80b5a4595ec4ae286c12e9ac8e"
+}

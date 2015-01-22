@@ -1,0 +1,16 @@
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index fa607ce..8e72f84 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -14,6 +14,10 @@ class CategoryRepository extends EntityRepository
+ {
+     public function findAllOrdered()
+     {
+-        die('this query will blow your mind...');
++        $dql = 'SELECT cat FROM AppBundle\Entity\Category cat';
++
++        $query = $this->getEntityManager()->createQuery($dql);
++
++        return $query->execute();
+     }
+ }
