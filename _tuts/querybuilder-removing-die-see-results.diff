@@ -1,0 +1,12 @@
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index fc7f776..3e8ebb3 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -17,7 +17,6 @@ class CategoryRepository extends EntityRepository
+         $qb = $this->createQueryBuilder('cat')
+             ->addOrderBy('cat.name', 'ASC');
+         $query = $qb->getQuery();
+-        var_dump($query->getDQL());die;
+ 
+         return $query->execute();
+     }

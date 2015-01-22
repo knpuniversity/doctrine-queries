@@ -29,7 +29,17 @@
             "id": "dql-removing-debug",
             "name": "DQL: Removing debug",
             "description": null
+        },
+        {
+            "id": "querybuilder-remaking-in-qb-and-printing-dql",
+            "name": "QueryBuilder: Remaking in QB and printing DQL",
+            "description": null
+        },
+        {
+            "id": "querybuilder-removing-die-see-results",
+            "name": "QueryBuilder: Removing die, see results",
+            "description": null
         }
     ],
-    "sha": "0c47c1752bac8a80b5a4595ec4ae286c12e9ac8e"
+    "sha": "09e6987115b2cc83d928cbc99ed97085ce78be37"
 }
