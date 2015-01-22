@@ -1,13 +1,13 @@
 diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
-index 9d7b790..d47b3c1 100644
+index 9149fcd..c6b8576 100644
 --- a/src/AppBundle/Controller/FortuneController.php
 +++ b/src/AppBundle/Controller/FortuneController.php
 @@ -17,7 +17,7 @@ class FortuneController extends Controller
-         $categories = $this->getDoctrine()
              ->getManager()
-             ->getRepository('AppBundle:Category')
--            ->findAll();
-+            ->findAllOrdered();
+             ->getRepository('AppBundle:Category');
+ 
+-        $categories = $categoryRepository->findAll();
++        $categories = $categoryRepository->findAllOrdered();
  
          return $this->render('fortune/homepage.html.twig',[
              'categories' => $categories
