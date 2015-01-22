@@ -39,7 +39,22 @@
             "id": "querybuilder-removing-die-see-results",
             "name": "QueryBuilder: Removing die, see results",
             "description": null
+        },
+        {
+            "id": "andwhere-adding-search-box-with-simple-andwhere",
+            "name": "andWhere: Adding search box with simple andWhere",
+            "description": null
+        },
+        {
+            "id": "andwhere-using-like-query",
+            "name": "andWhere: Using LIKE query",
+            "description": null
+        },
+        {
+            "id": "orwhere-also-looking-in-iconkey",
+            "name": "orWhere: Also looking in iconKey",
+            "description": null
         }
     ],
-    "sha": "5914dd8b5da9cfc19df58ce34c8f926256f655c0"
+    "sha": "61a0495a54361d66b0933ab688c4bdee48bfc2ca"
 }

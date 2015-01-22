@@ -1,0 +1,50 @@
+diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
+index c6b8576..47910a8 100644
+--- a/src/AppBundle/Controller/FortuneController.php
++++ b/src/AppBundle/Controller/FortuneController.php
+@@ -5,19 +5,25 @@ namespace AppBundle\Controller;
+ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+ use AppBundle\Entity\Category;
++use Symfony\Component\HttpFoundation\Request;
+ 
+ class FortuneController extends Controller
+ {
+     /**
+      * @Route("/", name="homepage")
+      */
+-    public function homepageAction()
++    public function homepageAction(Request $request)
+     {
+         $categoryRepository = $this->getDoctrine()
+             ->getManager()
+             ->getRepository('AppBundle:Category');
+ 
+-        $categories = $categoryRepository->findAllOrdered();
++        $search = $request->query->get('q');
++        if ($search) {
++            $categories = $categoryRepository->search($search);
++        } else {
++            $categories = $categoryRepository->findAllOrdered();
++        }
+ 
+         return $this->render('fortune/homepage.html.twig',[
+             'categories' => $categories
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index 3e8ebb3..979e07f 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -20,4 +20,13 @@ class CategoryRepository extends EntityRepository
+ 
+         return $query->execute();
+     }
++
++    public function search($term)
++    {
++        return $this->createQueryBuilder('cat')
++            ->andWhere('cat.name = :searchTerm')
++            ->setParameter('searchTerm', $term)
++            ->getQuery()
++            ->execute();
++    }
+ }
