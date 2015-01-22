@@ -50,6 +50,13 @@ class FortuneCookie
      */
     private $numberPrinted;
 
+    /**
+     * @var bool Is this FortuneCookie discontinued?
+     *
+     * @ORM\Column(name="discontinued", type="boolean")
+     */
+    private $discontinued = false;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -148,5 +155,21 @@ class FortuneCookie
     public function setCategory($category)
     {
         $this->category = $category;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isDiscontinued()
+    {
+        return $this->discontinued;
+    }
+
+    /**
+     * @param boolean $discontinued
+     */
+    public function setDiscontinued($discontinued)
+    {
+        $this->discontinued = $discontinued;
     }
 }

@@ -23,4 +23,22 @@ class FortuneController extends Controller
             'categories' => $categories
         ]);
     }
+
+    /**
+     * @Route("/category/{id}", name="category_show")
+     */
+    public function showCategoryAction($id)
+    {
+        $category = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:Category')
+            ->find($id);
+        if (!$category) {
+            throw $this->createNotFoundException();
+        }
+
+        return $this->render('fortune/showCategory.html.twig',[
+            'category' => $category
+        ]);
+    }
 }

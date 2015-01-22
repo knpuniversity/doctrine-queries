@@ -22,6 +22,7 @@ AppBundle\Entity\FortuneCookie:
     fortune_base (template):
         createdAt: <dateTimeBetween('-5 years', 'now')>
         numberPrinted: <numberBetween(100, 99999)>
+        discontinued: <boolean(10)>
 
     fortune_job{1..10} (extends fortune_base):
         category: @category_job

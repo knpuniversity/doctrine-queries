@@ -2,10 +2,7 @@
 
 {% block body %}
     <div>
-    {% for category in categories %}
-        <a href="{{ path('category_show', {'id': category.id}) }}">
-            {{ category.name }} <span class="fa {{ category.iconKey }}"></span>
-        </a>
+        {{ category.name }} <span class="fa {{ category.iconKey }}"></span>
         <div>
             {% for fortuneCookie in category.fortuneCookies %}
                 <div>
@@ -14,6 +11,5 @@
                 </div>
             {% endfor %}
         </div>
-    {% endfor %}
     </div>
 {% endblock %}
