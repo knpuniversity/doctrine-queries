@@ -56,14 +56,14 @@ speaks a different language: DQL, or Doctrine Query Language. Don't worry
 though, it's so close to SQL, most of the time you won't notice the difference.
 
 Let's see some DQL. So: `$dql = 'SELECT cat FROM AppBundle\Entity\Category cat';`.
-The bigg DQL difference is that instead of working with tables, you're working
+The big DQL difference is that instead of working with tables, you're working
 with PHP classes. And that's why we're selecting from the full class name
 of our entity. Symfony users are used to saying `AppBundle:Category`, but
 that's just a shortcut alias - internally it always turns into the full class
 name.
 
 The `cat` part is an alias, just like SQL. And instead of `SELECT *`, you
-write the alias - `SELECT cat`. This will query for everything column. Later,
+write the alias - `SELECT cat`. This will query for every column. Later,
 I'll show you how to query for only *some* fields.
 
 ## Executing DQL
@@ -101,4 +101,4 @@ this SQL? Well sure! And it might be useful for debugging. Just `var_dump`
     CODE
 
 Refresh! It's not terribly pretty, but there it is. For all the coolness,
-our tried-and-true SQL is behind the scenes. Remove that debug code.
+tried-and-true SQL lives behind the scenes. Remove that debug code.

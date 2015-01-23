@@ -37,8 +37,8 @@ let's see how our hard work translates into DQL:
 
     CODE
 
-Refresh! Look closely. That's the character-by-character the *exact* same
-DQL that we wrote before. So the query builder is just a *nice* way to help
+Refresh! Look closely. That's character-by-character the *exact* same DQL
+that we wrote before. So the query builder is just a *nice* way to help
 write DQL, and I prefer it because I get method auto-completion and it can
 help you re-use pieces of a query, like a complex JOIN, across multiple queries.
 I'll show you that later.

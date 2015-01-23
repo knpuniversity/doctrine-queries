@@ -52,7 +52,7 @@ Refresh! We've got a match!
 ## OR WHERE
 
 What about adding an OR WHERE to the query? The `Category` entity has an
-`iconKey` propery, which is where we get this little bug icon. For "Lucky Number",
+`iconKey` property, which is where we get this little bug icon. For "Lucky Number",
 it's set to `fa-bug` from Font Awesome. Search for that. No results of course!
 
 Let's update our query to match on the `name` OR `iconKey` property. If you're
@@ -78,7 +78,7 @@ a query like this:
     CODE
 
 What would the SQL look like for this? Would it have the three WHERE clauses
-in a row, or would it correctly surround the first two with paranthesis?
+in a row, or would it correctly surround the first two with parentheses?
 
     SELECT * FROM category WHERE
         name LIKE '%lucky%' OR iconKey LIKE '%lucky%' AND enabled = 1;
