@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index 979e07f..5798840 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -24,8 +24,8 @@ class CategoryRepository extends EntityRepository
+     public function search($term)
+     {
+         return $this->createQueryBuilder('cat')
+-            ->andWhere('cat.name = :searchTerm')
+-            ->setParameter('searchTerm', $term)
++            ->andWhere('cat.name LIKE :searchTerm')
++            ->setParameter('searchTerm', '%'.$term.'%')
+             ->getQuery()
+             ->execute();
+     }
