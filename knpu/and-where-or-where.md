@@ -13,14 +13,17 @@ If there is, we'll search for it, otherwise, we'll keep finding all the categori
 For the search, call a new method on the repository called `search()`, and
 pass in the term.
 
-    CODE
+[[[ code('b07b852216') ]]]
 
 Back in `CategoryRepository`, let's make that function:
 
-    CODE
+[[[ code('1d1d2f4111') ]]]
 
 We'll make a QueryBuilder just like before, but do the entire query in just
-one statement. Start by calling `createQueryBuilder()` and passing it `cat`.
+one statement. Start by calling `createQueryBuilder()` and passing it `cat`:
+
+[[[ code('d2c152efd9') ]]]
+
 The only thing our query needs is a WHERE clause to match the term to the
 `name` of the Category. Let's chain!
 
@@ -34,7 +37,7 @@ to tell Doctrine what I want to fill in for that term. So type `searchTerm`,
 should be replaced with `$term`. This avoids SQL injection attacks, so don't
 muck it up! Finally, we call `getQuery()` - like before - and `execute()`:
 
-    CODE
+[[[ code('a98192a012') ]]]
 
 And just like that, we should be able to go back, refresh, and there's our
 "Lucky Number" category match. And on the homepage, we still see everything.
@@ -43,11 +46,12 @@ And just like that, we should be able to go back, refresh, and there's our
 
 But if we just search for "Lucky", we get nothing back because we're doing
 an exact match. But just like with normal SQL, we know that's easy to fix.
-And you already know how:  just change `=` to `LIKE` - *just* like SQL! It's
-just like writing SQL people!
+And you already know how: just change `=` to `LIKE` - *just* like SQL!
 
-For the parameter value, surround it by percent signs to complete things.
-Refresh! We've got a match!
+It's just like writing SQL people! For the parameter value, surround it by
+percent signs to complete things. Refresh! We've got a match!
+
+[[[ code('b9cede3edb') ]]]
 
 ## OR WHERE
 
@@ -59,13 +63,12 @@ Let's update our query to match on the `name` OR `iconKey` property. If you're
 guessing that there's an `orWhere()` method, you're right! If you're guessing
 that I'm going to use it, you're wrong!
 
-    CODE
-
 The string inside of the `andWhere` is a mini-DQL expression. So you can
-add ` OR cat.iconKey LIKE :searchTerm`. And the `searchTerm` placeholder
-is already being filled in:
+add ` OR cat.iconKey LIKE :searchTerm`:
 
-    CODE
+[[[ code('0e8ea207d8') ]]]
+
+And the `searchTerm` placeholder is already being filled in:
 
 Refresh! Another match! 
 
@@ -75,7 +78,16 @@ So even though there is an `orWhere()` function, don't use it - it can cause
 WTF moments. Imagine if Category had an `enabled` property, and we built
 a query like this:
 
-    CODE
+```php
+$this->createQueryBuilder('cat')
+    ->andWhere('cat.name LIKE :searchTerm')
+    ->orWhere('cat.iconKey LIKE :searchTerm')
+    ->andWhere('cat.enabled = :enabled')
+    ->setParameter('searchTerm', '%'.$term.'%')
+    ->setParameter('enabled', true)
+    ->getQuery()
+    ->execute();
+```
 
 What would the SQL look like for this? Would it have the three WHERE clauses
 in a row, or would it correctly surround the first two with parentheses?
