@@ -12,8 +12,14 @@ illustration: doctrine-queries.png
 
 chapters:
     dql:
+        title:      DQL
         is_free:    true
+        video_key:  cpylary282
     query-builder:
-        is_free:    true
-    and-where-or-where:
+        title:      Query Builder
         is_free:    false
+        video_key:  ja6jl70qf8
+    and-where-or-where:
+        title:      AND WHERE OR WHERE
+        is_free:    false
+        video_key:  au4hxjcmak
