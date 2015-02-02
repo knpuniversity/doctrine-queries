@@ -17,3 +17,17 @@ chapters:
         is_free:    true
     and-where-or-where:
         is_free:    false
+    joins:
+        is_finished: false
+    joins-reduce-queries:
+        is_finished: false
+    count:
+        is_finished: false
+    select-specific-fields:
+        is_finished: false
+    raw-sql-queries:
+        is_finished: false
+    reusing-queries-query-builder:
+        is_finished: false
+    filters:
+        is_finished: false
