@@ -9,14 +9,16 @@ summary: |
     simplicity rules :).
 
 illustration: doctrine-queries.png
+videoDownloadExtension: mov
 
 chapters:
     dql:
         is_free:    true
+        video_key:  cpylary282
     query-builder:
-        is_free:    true
+        video_key:  ja6jl70qf8
     and-where-or-where:
-        is_free:    false
+        video_key:  au4hxjcmak
     joins:
         is_finished: false
     joins-reduce-queries:
