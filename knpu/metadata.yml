@@ -23,7 +23,7 @@ chapters:
         is_finished: false
     joins-reduce-queries:
         is_finished: false
-    count:
+    select-sum:
         is_finished: false
     select-specific-fields:
         is_finished: false
