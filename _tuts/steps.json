@@ -74,7 +74,17 @@
             "id": "join-adding-join-to-find",
             "name": "JOIN: Adding join to find()",
             "description": null
+        },
+        {
+            "id": "sum-summing-up-total-printed-using-getoneornullresult",
+            "name": "SUM: Summing up total printed, using getOneOrNullResult",
+            "description": null
+        },
+        {
+            "id": "sum-using-getsinglescalarresult",
+            "name": "SUM: Using getSingleScalarResult",
+            "description": null
         }
     ],
-    "sha": "2ba040f0b7f28a62b8edc644a2f9d12a20d76498"
+    "sha": "9c0802c22e6e9c1e5867df766f79e0f87820368c"
 }
