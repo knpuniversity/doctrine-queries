@@ -54,7 +54,12 @@
             "id": "orwhere-also-looking-in-iconkey",
             "name": "orWhere: Also looking in iconKey",
             "description": null
+        },
+        {
+            "id": "join-leftjoin-for-andwhere",
+            "name": "JOIN: leftJoin for andWhere",
+            "description": null
         }
     ],
-    "sha": "a5bce34a1cd4fea20685fb88e8aeb814946c72ea"
+    "sha": "08ad9fcfede4c4593f9eaf01860217876acdd9f3"
 }

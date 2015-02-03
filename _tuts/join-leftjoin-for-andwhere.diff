@@ -1,0 +1,16 @@
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index d62f729..30e045a 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -24,7 +24,10 @@ class CategoryRepository extends EntityRepository
+     public function search($term)
+     {
+         return $this->createQueryBuilder('cat')
+-            ->andWhere('cat.name LIKE :searchTerm OR cat.iconKey LIKE :searchTerm')
++            ->andWhere('cat.name LIKE :searchTerm
++                OR cat.iconKey LIKE :searchTerm
++                OR fc.fortune LIKE :searchTerm')
++            ->leftJoin('cat.fortuneCookies', 'fc')
+             ->setParameter('searchTerm', '%'.$term.'%')
+             ->getQuery()
+             ->execute();
