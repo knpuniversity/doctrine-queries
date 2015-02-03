@@ -1,0 +1,15 @@
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index 42d7e07..4dc4e9b 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -15,7 +15,9 @@ class CategoryRepository extends EntityRepository
+     public function findAllOrdered()
+     {
+         $qb = $this->createQueryBuilder('cat')
+-            ->addOrderBy('cat.name', 'ASC');
++            ->addOrderBy('cat.name', 'ASC')
++            ->leftJoin('cat.fortuneCookies', 'fc')
++            ->addSelect('fc');
+         $query = $qb->getQuery();
+ 
+         return $query->execute();

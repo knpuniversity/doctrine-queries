@@ -59,7 +59,22 @@
             "id": "join-leftjoin-for-andwhere",
             "name": "JOIN: leftJoin for andWhere",
             "description": null
+        },
+        {
+            "id": "join-select-in-the-search",
+            "name": "JOIN: select in the search",
+            "description": null
+        },
+        {
+            "id": "join-addselect-in-the-findallordered",
+            "name": "JOIN: addSelect in the findAllOrdered",
+            "description": null
+        },
+        {
+            "id": "join-adding-join-to-find",
+            "name": "JOIN: Adding join to find()",
+            "description": null
         }
     ],
-    "sha": "08ad9fcfede4c4593f9eaf01860217876acdd9f3"
+    "sha": "2ba040f0b7f28a62b8edc644a2f9d12a20d76498"
 }

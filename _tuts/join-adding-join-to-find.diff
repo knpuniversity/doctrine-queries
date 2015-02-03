@@ -1,0 +1,33 @@
+diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
+index 47910a8..f0cfce1 100644
+--- a/src/AppBundle/Controller/FortuneController.php
++++ b/src/AppBundle/Controller/FortuneController.php
+@@ -39,7 +39,7 @@ class FortuneController extends Controller
+             ->getManager()
+             ->getRepository('AppBundle:Category');
+ 
+-        $category = $categoryRepository->find($id);
++        $category = $categoryRepository->findWithFortunesJoin($id);
+ 
+         if (!$category) {
+             throw $this->createNotFoundException();
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index 4dc4e9b..1357120 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -35,4 +35,15 @@ class CategoryRepository extends EntityRepository
+             ->getQuery()
+             ->execute();
+     }
++
++    public function findWithFortunesJoin($id)
++    {
++        return $this->createQueryBuilder('cat')
++            ->andWhere('cat.id = :id')
++            ->leftJoin('cat.fortuneCookies', 'fc')
++            ->addSelect('fc')
++            ->setParameter('id', $id)
++            ->getQuery()
++            ->getOneOrNullResult();
++    }
+ }

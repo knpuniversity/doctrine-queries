@@ -1,0 +1,12 @@
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index 30e045a..42d7e07 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -28,6 +28,7 @@ class CategoryRepository extends EntityRepository
+                 OR cat.iconKey LIKE :searchTerm
+                 OR fc.fortune LIKE :searchTerm')
+             ->leftJoin('cat.fortuneCookies', 'fc')
++            ->addSelect('fc')
+             ->setParameter('searchTerm', '%'.$term.'%')
+             ->getQuery()
+             ->execute();
