@@ -1,0 +1,12 @@
+diff --git a/src/AppBundle/Entity/FortuneCookieRepository.php b/src/AppBundle/Entity/FortuneCookieRepository.php
+index d9bc432..6558d40 100644
+--- a/src/AppBundle/Entity/FortuneCookieRepository.php
++++ b/src/AppBundle/Entity/FortuneCookieRepository.php
+@@ -17,6 +17,7 @@ class FortuneCookieRepository extends EntityRepository
+         return $this->createQueryBuilder('fc')
+             ->andWhere('fc.category = :category')
+             ->setParameter('category', $category)
++            ->innerJoin('fc.category', 'cat')
+             ->select('SUM(fc.numberPrinted) as fortunesPrinted, AVG(fc.numberPrinted) as fortunesAverage, cat.name')
+             ->getQuery()
+             ->getSingleScalarResult();

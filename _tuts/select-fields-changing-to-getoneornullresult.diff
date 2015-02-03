@@ -1,0 +1,56 @@
+diff --git a/app/Resources/views/fortune/showCategory.html.twig b/app/Resources/views/fortune/showCategory.html.twig
+index 8a9c49d..d4dca81 100644
+--- a/app/Resources/views/fortune/showCategory.html.twig
++++ b/app/Resources/views/fortune/showCategory.html.twig
+@@ -8,10 +8,11 @@
+                     <thead class="header-bkgrnd">
+                         <tr>
+                             <th>
+-                               <span class="fa {{ category.iconKey }}"></span> {{ category.name }} 
++                               <span class="fa {{ category.iconKey }}"></span> {{ categoryName }}
+                             </th>
+                             <th>
+-                               Printed History ({{ fortunesPrinted|number_format }} total)
++                               Printed History ({{ fortunesPrinted|number_format }} total,
++                                {{ averagePrinted|number_format }} average)
+                             </th>
+                         </tr>
+                     </thead>
+diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
+index 31f7ad2..9e11c2b 100644
+--- a/src/AppBundle/Controller/FortuneController.php
++++ b/src/AppBundle/Controller/FortuneController.php
+@@ -45,14 +45,18 @@ class FortuneController extends Controller
+             throw $this->createNotFoundException();
+         }
+ 
+-        $fortunesPrinted = $this->getDoctrine()
++        $fortunesData = $this->getDoctrine()
+             ->getRepository('AppBundle:FortuneCookie')
+             ->countNumberPrintedForCategory($category);
+-        var_dump($fortunesPrinted);die;
++        $fortunesPrinted = $fortunesData['fortunesPrinted'];
++        $averagePrinted = $fortunesData['fortunesAverage'];
++        $categoryName = $fortunesData['name'];
+ 
+         return $this->render('fortune/showCategory.html.twig',[
+             'category' => $category,
+             'fortunesPrinted' => $fortunesPrinted,
++            'averagePrinted' => $averagePrinted,
++            'categoryName' => $categoryName
+         ]);
+     }
+ }
+diff --git a/src/AppBundle/Entity/FortuneCookieRepository.php b/src/AppBundle/Entity/FortuneCookieRepository.php
+index 6558d40..3899dd7 100644
+--- a/src/AppBundle/Entity/FortuneCookieRepository.php
++++ b/src/AppBundle/Entity/FortuneCookieRepository.php
+@@ -20,7 +20,7 @@ class FortuneCookieRepository extends EntityRepository
+             ->innerJoin('fc.category', 'cat')
+             ->select('SUM(fc.numberPrinted) as fortunesPrinted, AVG(fc.numberPrinted) as fortunesAverage, cat.name')
+             ->getQuery()
+-            ->getSingleScalarResult();
++            ->getOneOrNullResult();
+     }
+ 
+ }

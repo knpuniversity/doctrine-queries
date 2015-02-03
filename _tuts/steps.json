@@ -84,7 +84,22 @@
             "id": "sum-using-getsinglescalarresult",
             "name": "SUM: Using getSingleScalarResult",
             "description": null
+        },
+        {
+            "id": "select-fields-selecting-more-fields-in-query",
+            "name": "SELECT fields: Selecting more fields in query",
+            "description": null
+        },
+        {
+            "id": "select-fields-joining-to-cat",
+            "name": "SELECT fields: joining to cat",
+            "description": null
+        },
+        {
+            "id": "select-fields-changing-to-getoneornullresult",
+            "name": "SELECT fields: changing to getOneOrNullResult()",
+            "description": null
         }
     ],
-    "sha": "9c0802c22e6e9c1e5867df766f79e0f87820368c"
+    "sha": "ebbd6eab57e261122bc166b66ba5a52788018cb8"
 }

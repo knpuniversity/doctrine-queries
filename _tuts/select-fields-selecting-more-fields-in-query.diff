@@ -1,0 +1,25 @@
+diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
+index 7286fc1..31f7ad2 100644
+--- a/src/AppBundle/Controller/FortuneController.php
++++ b/src/AppBundle/Controller/FortuneController.php
+@@ -48,6 +48,7 @@ class FortuneController extends Controller
+         $fortunesPrinted = $this->getDoctrine()
+             ->getRepository('AppBundle:FortuneCookie')
+             ->countNumberPrintedForCategory($category);
++        var_dump($fortunesPrinted);die;
+ 
+         return $this->render('fortune/showCategory.html.twig',[
+             'category' => $category,
+diff --git a/src/AppBundle/Entity/FortuneCookieRepository.php b/src/AppBundle/Entity/FortuneCookieRepository.php
+index cade418..d9bc432 100644
+--- a/src/AppBundle/Entity/FortuneCookieRepository.php
++++ b/src/AppBundle/Entity/FortuneCookieRepository.php
+@@ -17,7 +17,7 @@ class FortuneCookieRepository extends EntityRepository
+         return $this->createQueryBuilder('fc')
+             ->andWhere('fc.category = :category')
+             ->setParameter('category', $category)
+-            ->select('SUM(fc.numberPrinted) as fortunesPrinted')
++            ->select('SUM(fc.numberPrinted) as fortunesPrinted, AVG(fc.numberPrinted) as fortunesAverage, cat.name')
+             ->getQuery()
+             ->getSingleScalarResult();
+     }
