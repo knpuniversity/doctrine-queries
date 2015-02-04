@@ -44,7 +44,7 @@ do our query.
 
 Let's go add our LEFT JOIN to the query builder! If you're thinking there's
 a `leftJoin` method, winner! And this time, we *are* going to use it. Join
-on `cat.fortuneCookie`. Why `fortuneCookies`? Because this is the *name*
+on `cat.fortuneCookies`. Why `fortuneCookies`? Because this is the *name*
 of the property on `Category` for this relationship.
 
 The second argument to `leftJoin()` is the alias we want to give to `FortuneCookie`,

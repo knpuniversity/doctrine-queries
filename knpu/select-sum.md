@@ -1,7 +1,7 @@
 # SELECT the SUM (or COUNT)
 
 In every query so far, Doctrine gives us objects. That's its default mode,
-but that we can also easily use it to select specific fields.
+but we can also easily use it to select specific fields.
 
 On our category page, you can see how many of each fortune has been printed
 over time. At the top, let's total those numbers with a SUM() query and print
@@ -22,7 +22,7 @@ into the template:
 [[[ code('f2253c98b7') ]]]
 
 And now print it out: `{{ fortunesPrinted }}`, put that through Twig's
-`number_format` filter and add the world "total":
+`number_format` filter and add the word "total":
 
 [[[ code('5b6541fde1') ]]]
 

@@ -32,7 +32,7 @@ This "extra query" isn't the end of the world. In fact, I don't usually fix
 it until I'm working on my page's performance. On the homepage without a
 search, it's even *more* noticeable. We have *7* queries here: one for the
 categories, and one extra query to get the fortune cookies for *each* category
-in the list. That makes 2, 3, 4, 5 6 and 7 queries. This is a classic problem
+in the list. That makes 2, 3, 4, 5, 6 and 7 queries. This is a classic problem
 called the n+1 problem.
 
 And again, it's not the end of the world - so don't over-optimize. But let's
@@ -41,7 +41,7 @@ fix it here.
 ## Reducing Queries with addSelect
 
 Back in `CategoryRepository`, once we've joined over to our `fortuneCookies`,
-we can say `->addSelect('fc)`:
+we can say `->addSelect('fc')`:
 
 [[[ code('486d225972') ]]]
 
@@ -90,7 +90,7 @@ We're using the built-in `find()` method in the controller:
 [[[ code('4d18844a05') ]]]
 
 But since it doesn't let us do any joins, we need to do something more custom.
-Call a new method `findAllWithFortunesJoin`. You know the drill: we'll go
+Call a new method `findWithFortunesJoin`. You know the drill: we'll go
 into `CategoryRepository` and then add that method. And at this point, this
 should be a really easy query. I'll copy the `search()` function, then simplify
 things in the `andWhere`: `cat.id = :id`. We want to keep the `leftJoin()`

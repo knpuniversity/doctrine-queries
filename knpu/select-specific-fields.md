@@ -42,7 +42,7 @@ a little, you'll eventually see the full query:
         FROM AppBundle\Entity\FortuneCookie fc
         WHERE fc.category = :category
 
-For me, sometimes the top errors is so small, it doesn't make sense. But
+For me, sometimes the top error is so small, it doesn't make sense. But
 if I look at it in context of the full query, it's a lot easier to figure
 out what mistake I made. 
 
@@ -68,7 +68,7 @@ one row, but multiple columns:
 [[[ code('74641b1891') ]]]
 
 Refresh! Beautiful! The result is an associative array with `fortunesPrinted`,
-`fortunedAverage` and `name` keys. And notice, we didn't give the category
+`fortunesAverage` and `name` keys. And notice, we didn't give the category
 name an alias in the query - we didn't say `as something`, so it just used
 name by default:
 
@@ -80,14 +80,14 @@ is optional - I didn't leave it out on purpose, but hey, good learning moment.
 
 The query is beautiful, so let's actually use our data. In the controller,
 change the result from `$fortunesPrinted` to `$fortunesData` - it's really
-an array. And below, set `$fortunesPrinted` to `$forutnesData['...']`. I'll
+an array. And below, set `$fortunesPrinted` to `$fortunesData['...']`. I'll
 check my query to remember the alias - it's `fortunesPrinted`, so I'll use
 that. I'll do the same thing for the other two fields:
 
 [[[ code('094c97162c') ]]]
 
 The alias for the average is `fortunesAverage`. And the last one just uses
-`$name`. Let's pass these into the template:
+`name`. Let's pass these into the template:
 
 [[[ code('3c4bc12883') ]]]
 
