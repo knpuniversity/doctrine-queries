@@ -26,7 +26,7 @@ chapters:
     select-sum:
         video_key:  belaxzbjls
     select-specific-fields:
-        is_finished: false
+         video_key:  aw2hauvx7j
     raw-sql-queries:
         is_finished: false
     reusing-queries-query-builder:
