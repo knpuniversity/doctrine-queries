@@ -24,7 +24,7 @@ chapters:
     joins-reduce-queries:
         video_key:  6bt213mvsr
     select-sum:
-        is_finished: false
+        video_key:  belaxzbjls
     select-specific-fields:
         is_finished: false
     raw-sql-queries:
