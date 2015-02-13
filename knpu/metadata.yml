@@ -20,7 +20,7 @@ chapters:
     and-where-or-where:
         video_key:  au4hxjcmak
     joins:
-        is_finished: false
+        video_key:  odkbalje2q
     joins-reduce-queries:
         video_key:  6bt213mvsr
     select-sum:
