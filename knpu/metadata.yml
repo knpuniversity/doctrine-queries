@@ -22,7 +22,7 @@ chapters:
     joins:
         is_finished: false
     joins-reduce-queries:
-        is_finished: false
+        video_key:  6bt213mvsr
     select-sum:
         is_finished: false
     select-specific-fields:
