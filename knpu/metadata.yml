@@ -20,13 +20,13 @@ chapters:
     and-where-or-where:
         video_key:  au4hxjcmak
     joins:
-        is_finished: false
+        video_key:  odkbalje2q
     joins-reduce-queries:
-        is_finished: false
+        video_key:  6bt213mvsr
     select-sum:
-        is_finished: false
+        video_key:  belaxzbjls
     select-specific-fields:
-        is_finished: false
+         video_key:  aw2hauvx7j
     raw-sql-queries:
         is_finished: false
     reusing-queries-query-builder:
