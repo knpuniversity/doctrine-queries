@@ -99,7 +99,32 @@
             "id": "select-fields-changing-to-getoneornullresult",
             "name": "SELECT fields: changing to getOneOrNullResult()",
             "description": null
+        },
+        {
+            "id": "raw-sql-get-connection",
+            "name": "Raw SQL: Get Connection",
+            "description": null
+        },
+        {
+            "id": "raw-sql-trying-a-basic-query",
+            "name": "Raw SQL: Trying a basic query",
+            "description": null
+        },
+        {
+            "id": "raw-sql-doing-real-query",
+            "name": "Raw SQL: Doing real query",
+            "description": null
+        },
+        {
+            "id": "raw-sql-using-fetch-to-get-one-result",
+            "name": "Raw SQL: Using fetch() to get one result",
+            "description": null
+        },
+        {
+            "id": "raw-sql-removing-die-and-returning",
+            "name": "Raw SQL: Removing die and returning",
+            "description": null
         }
     ],
-    "sha": "ebbd6eab57e261122bc166b66ba5a52788018cb8"
+    "sha": "9af4750ffec844209ec4ac075158cb4c9cc35c68"
 }

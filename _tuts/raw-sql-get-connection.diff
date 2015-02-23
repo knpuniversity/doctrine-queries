@@ -1,0 +1,16 @@
+diff --git a/src/AppBundle/Entity/FortuneCookieRepository.php b/src/AppBundle/Entity/FortuneCookieRepository.php
+index 3899dd7..b9acde4 100644
+--- a/src/AppBundle/Entity/FortuneCookieRepository.php
++++ b/src/AppBundle/Entity/FortuneCookieRepository.php
+@@ -14,6 +14,11 @@ class FortuneCookieRepository extends EntityRepository
+ {
+     public function countNumberPrintedForCategory(Category $category)
+     {
++        $conn = $this->getEntityManager()
++            ->getConnection();
++
++        var_dump($conn);die;
++
+         return $this->createQueryBuilder('fc')
+             ->andWhere('fc.category = :category')
+             ->setParameter('category', $category)

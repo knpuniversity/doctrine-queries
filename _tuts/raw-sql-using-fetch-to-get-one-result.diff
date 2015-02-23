@@ -1,0 +1,13 @@
+diff --git a/src/AppBundle/Entity/FortuneCookieRepository.php b/src/AppBundle/Entity/FortuneCookieRepository.php
+index 24178b6..d79f0ba 100644
+--- a/src/AppBundle/Entity/FortuneCookieRepository.php
++++ b/src/AppBundle/Entity/FortuneCookieRepository.php
+@@ -25,7 +25,7 @@ class FortuneCookieRepository extends EntityRepository
+             ';
+         $stmt = $conn->prepare($sql);
+         $stmt->execute(array('category' => $category->getId()));
+-        var_dump($stmt->fetchAll());die;
++        var_dump($stmt->fetch());die;
+ 
+         return $this->createQueryBuilder('fc')
+             ->andWhere('fc.category = :category')

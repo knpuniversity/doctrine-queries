@@ -1,0 +1,21 @@
+diff --git a/src/AppBundle/Entity/FortuneCookieRepository.php b/src/AppBundle/Entity/FortuneCookieRepository.php
+index df22750..24178b6 100644
+--- a/src/AppBundle/Entity/FortuneCookieRepository.php
++++ b/src/AppBundle/Entity/FortuneCookieRepository.php
+@@ -17,9 +17,14 @@ class FortuneCookieRepository extends EntityRepository
+         $conn = $this->getEntityManager()
+             ->getConnection();
+ 
+-        $sql = 'SELECT * FROM fortune_cookie';
++        $sql = '
++            SELECT SUM(fc.numberPrinted) as fortunesPrinted, AVG(fc.numberPrinted) as fortunesAverage, cat.name
++            FROM fortune_cookie fc
++            INNER JOIN category cat ON cat.id = fc.category_id
++            WHERE fc.category_id = :category
++            ';
+         $stmt = $conn->prepare($sql);
+-        $stmt->execute();
++        $stmt->execute(array('category' => $category->getId()));
+         var_dump($stmt->fetchAll());die;
+ 
+         return $this->createQueryBuilder('fc')
