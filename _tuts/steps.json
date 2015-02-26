@@ -124,7 +124,12 @@
             "id": "raw-sql-removing-die-and-returning",
             "name": "Raw SQL: Removing die and returning",
             "description": null
+        },
+        {
+            "id": "querybuilder-add-a-method-to-re-use-the-join",
+            "name": "QueryBuilder: Add a method to re-use the join",
+            "description": null
         }
     ],
-    "sha": "9af4750ffec844209ec4ac075158cb4c9cc35c68"
+    "sha": "385a4ad45c8c7e8f96efa2c2acf1458886ecb124"
 }

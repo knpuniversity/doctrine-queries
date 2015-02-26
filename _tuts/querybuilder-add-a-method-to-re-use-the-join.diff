@@ -1,0 +1,74 @@
+diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
+index 1357120..e4277c2 100644
+--- a/src/AppBundle/Entity/CategoryRepository.php
++++ b/src/AppBundle/Entity/CategoryRepository.php
+@@ -3,6 +3,7 @@
+ namespace AppBundle\Entity;
+ 
+ use Doctrine\ORM\EntityRepository;
++use Doctrine\ORM\QueryBuilder;
+ 
+ /**
+  * CategoryRepository
+@@ -15,9 +16,9 @@ class CategoryRepository extends EntityRepository
+     public function findAllOrdered()
+     {
+         $qb = $this->createQueryBuilder('cat')
+-            ->addOrderBy('cat.name', 'ASC')
+-            ->leftJoin('cat.fortuneCookies', 'fc')
+-            ->addSelect('fc');
++            ->addOrderBy('cat.name', 'ASC');
++        $this->addFortuneCookieJoinAndSelect($qb);
++
+         $query = $qb->getQuery();
+ 
+         return $query->execute();
+@@ -25,12 +26,13 @@ class CategoryRepository extends EntityRepository
+ 
+     public function search($term)
+     {
+-        return $this->createQueryBuilder('cat')
++        $qb = $this->createQueryBuilder('cat')
+             ->andWhere('cat.name LIKE :searchTerm
+                 OR cat.iconKey LIKE :searchTerm
+-                OR fc.fortune LIKE :searchTerm')
+-            ->leftJoin('cat.fortuneCookies', 'fc')
+-            ->addSelect('fc')
++                OR fc.fortune LIKE :searchTerm');
++        $this->addFortuneCookieJoinAndSelect($qb);
++
++        return $qb
+             ->setParameter('searchTerm', '%'.$term.'%')
+             ->getQuery()
+             ->execute();
+@@ -38,12 +40,26 @@ class CategoryRepository extends EntityRepository
+ 
+     public function findWithFortunesJoin($id)
+     {
+-        return $this->createQueryBuilder('cat')
+-            ->andWhere('cat.id = :id')
+-            ->leftJoin('cat.fortuneCookies', 'fc')
+-            ->addSelect('fc')
++        $qb = $this->createQueryBuilder('cat')
++            ->andWhere('cat.id = :id');
++        $this->addFortuneCookieJoinAndSelect($qb);
++
++        return $qb
+             ->setParameter('id', $id)
+             ->getQuery()
+             ->getOneOrNullResult();
+     }
++
++    /**
++     * Joins over to cat.fortuneCookies AND selects its fields
++     *
++     * @param QueryBuilder $qb
++     * @return QueryBuilder
++     */
++    private function addFortuneCookieJoinAndSelect(QueryBuilder $qb)
++    {
++        return $qb->leftJoin('cat.fortuneCookies', 'fc')
++            ->addSelect('fc');
++    }
++
+ }
