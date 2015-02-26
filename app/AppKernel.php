@@ -2,6 +2,7 @@
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class AppKernel extends Kernel
 {
@@ -45,7 +46,7 @@ class AppKernel extends Kernel
         );
     }
 
-    public function onKernelRequest()
+    public function onKernelRequest(GetResponseEvent $event)
     {
         // ...
     }
