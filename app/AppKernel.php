@@ -31,6 +31,25 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
+    public function boot()
+    {
+        parent::boot();
+
+        // This is just a really simple/cheap (cheating?) way of creating
+        // an event listener
+        /** @var \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher $dispatcher */
+        $dispatcher = $this->container->get('event_dispatcher');
+        $dispatcher->addListenerService(
+            \Symfony\Component\HttpKernel\KernelEvents::REQUEST,
+            array('kernel', 'onKernelRequest')
+        );
+    }
+
+    public function onKernelRequest()
+    {
+        // ...
+    }
+
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
