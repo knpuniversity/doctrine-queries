@@ -129,7 +129,27 @@
             "id": "querybuilder-add-a-method-to-re-use-the-join",
             "name": "QueryBuilder: Add a method to re-use the join",
             "description": null
+        },
+        {
+            "id": "filter-create-filter-class-and-basic-use",
+            "name": "Filter: Create Filter class and basic use",
+            "description": null
+        },
+        {
+            "id": "filter-enable-the-filter",
+            "name": "Filter: Enable the filter",
+            "description": null
+        },
+        {
+            "id": "filter-use-setparameter",
+            "name": "Filter: Use setParameter",
+            "description": null
+        },
+        {
+            "id": "filter-put-into-a-listener",
+            "name": "Filter: Put into a listener",
+            "description": null
         }
     ],
-    "sha": "385a4ad45c8c7e8f96efa2c2acf1458886ecb124"
+    "sha": "1c46089467fe8a7997866e3c39b24b2d4391cc1f"
 }

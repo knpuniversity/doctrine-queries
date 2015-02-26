@@ -1,0 +1,16 @@
+diff --git a/src/AppBundle/Doctrine/DiscontinuedFilter.php b/src/AppBundle/Doctrine/DiscontinuedFilter.php
+index ed7f72e..d439de2 100644
+--- a/src/AppBundle/Doctrine/DiscontinuedFilter.php
++++ b/src/AppBundle/Doctrine/DiscontinuedFilter.php
+@@ -17,6 +17,10 @@ class DiscontinuedFilter extends SQLFilter
+      */
+     public function addFilterConstraint(ClassMetadata $targetEntity, $targetTableAlias)
+     {
+-        var_dump($targetEntity);die;
++        if ($targetEntity->getReflectionClass()->name != 'AppBundle\Entity\FortuneCookie') {
++            return '';
++        }
++
++        return sprintf('%s.discontinued = false', $targetTableAlias);
+     }
+ }

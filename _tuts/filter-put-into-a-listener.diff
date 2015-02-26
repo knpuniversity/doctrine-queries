@@ -1,0 +1,34 @@
+diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
+index e01f266..9e11c2b 100644
+--- a/src/AppBundle/Controller/FortuneController.php
++++ b/src/AppBundle/Controller/FortuneController.php
+@@ -14,12 +14,6 @@ class FortuneController extends Controller
+      */
+     public function homepageAction(Request $request)
+     {
+-        $filter = $this->getDoctrine()
+-            ->getEntityManager()
+-            ->getFilters()
+-            ->enable('fortune_cookie_discontinued');
+-        $filter->setParameter('discontinued', false);
+-
+         $categoryRepository = $this->getDoctrine()
+             ->getManager()
+             ->getRepository('AppBundle:Category');
+diff --git a/src/AppBundle/EventListener/BeforeRequestListener.php b/src/AppBundle/EventListener/BeforeRequestListener.php
+index d9940ea..7efa194 100644
+--- a/src/AppBundle/EventListener/BeforeRequestListener.php
++++ b/src/AppBundle/EventListener/BeforeRequestListener.php
+@@ -14,6 +14,9 @@ class BeforeRequestListener
+ 
+     public function onKernelRequest(GetResponseEvent $event)
+     {
+-        // ...
++        $filter = $this->em
++            ->getFilters()
++            ->enable('fortune_cookie_discontinued');
++        $filter->setParameter('discontinued', false);
+     }
+-}
+\ No newline at end of file
++}
