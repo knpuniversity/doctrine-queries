@@ -2,7 +2,6 @@
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class AppKernel extends Kernel
 {
@@ -30,25 +29,6 @@ class AppKernel extends Kernel
         }
 
         return $bundles;
-    }
-
-    public function boot()
-    {
-        parent::boot();
-
-        // This is just a really simple/cheap (cheating?) way of creating
-        // an event listener
-        /** @var \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher $dispatcher */
-        $dispatcher = $this->container->get('event_dispatcher');
-        $dispatcher->addListenerService(
-            \Symfony\Component\HttpKernel\KernelEvents::REQUEST,
-            array('kernel', 'onKernelRequest')
-        );
-    }
-
-    public function onKernelRequest(GetResponseEvent $event)
-    {
-        // ...
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)
