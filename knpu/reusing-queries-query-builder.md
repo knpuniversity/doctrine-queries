@@ -9,17 +9,17 @@ the same `leftJoin()` to `cat.fortuneCookies` and the `addSelect()`:
 
 [[[ code('3265eb127e') ]]]
 
-Ah, duplication! When you see have duplication like this - whether it's a
-WHERE, an ORDER BY or a JOIN - there's a simple solution. Just add a new
-private function that adds these parts to a query builder.
+Ah, duplication! When you see duplication like this - whether it's a WHERE,
+an ORDER BY or a JOIN - there's a simple solution. Just add a new private
+function and have *it* add this stuff to the query builder.
 
 ## Query-modifying Functions
 
 Create a private function called `addFortuneCookieJoinAndSelect()`, because
 that's what it's going to do! It'll accept a `QueryBuilder` as an argument.
-And our goal is to, well, add the join to that. So I'll copy the 2 pieces
-that we want and say, add a `$qb`, then paste it there. And just for convenience,
-let's return this too:
+Our goal is to, well, add the join to that. So I'll copy the 2 pieces that
+we want, add a `$qb`, then paste it there. And just for convenience, let's
+return this too:
 
 [[[ code('3c6f204f9b') ]]]
 
@@ -58,6 +58,6 @@ Try it! Refresh and click into a category. It all works. And you know, I feel
 a lot better. If there's one things I don't want to duplicate, it's query
 logic. I hope this looks really obvious to you - it's just a simple coding
 technique. But it's kind of amazing, because it's not something you can do
-easily with string queries. And it an *really* save you if once you've got
+easily with string queries. And it can *really* save you if once you've got
 complex WHERE clauses that need to be re-used. You don't want to screw that
 stuff up.
