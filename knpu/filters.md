@@ -28,7 +28,7 @@ are simple: just extend the `SQLFilter` class, and that'll force us to have
 one method. So let's do that - `extends SQLFilter`. My IDE is *angry* because
 `SQLFilter` has an abstract method we need to add. I'll use PHPStorm's
 Code->Generate shortcut and choose "Implement Methods". It does the work
-of adding that nice `addFilterConstraint` method for me. And for some reason,
+of adding that `addFilterConstraint` method for me. And for some reason,
 it's extra generous and gives me an extra `ClassMetadata` use statement,
 so I'll take that out.
 
@@ -110,7 +110,7 @@ return an empty string:
 [[[ code('f2619c4809') ]]]
 
 It's *gotta* be an empty string. That tells Doctrine: hey, I don't want to
-add any WHERE clauses here - so just leave it along. If you return null,
+add any WHERE clauses here - so just leave it alone. If you return null,
 it adds the WHERE but doesn't put anything in it.
 
 Below this, it's our time to shine. We're going to return what you want in
@@ -126,7 +126,7 @@ and pass it something like `fc`. That's the alias. In this case, Doctrine
 is *telling* us what the alias is so we can use it.
 
 Alright. Refresh! Um ok, no errors. But it's also not obvious if this is
-working. So look at the number of fortune cookies on each category: 1, 2
+working. So look at the number of fortune cookies in each category: 1, 2,
 3, 3, 3, 4. Go back to `FortuneController` and delete the `enable()` call.
 Refresh again. Ah hah! All the numbers went *up* a little. Our filter is
 working.
@@ -138,7 +138,7 @@ to `fortune_cookie`, it added this `f1_.discontinued = false`.
 Woh woh woh. This is more amazing than I've been promising. Even though our
 query is for `Category`'s, it was smart enough to apply the filter when it
 joined over to `FortuneCookie`. Because of this, when we call `Category::getFortuneCookies()`,
-that's *only* going to automatically *not* have the ones that are discontinued.
+that's *only* going to have the ones that are *not* discontinued.
 The filter is applied if the fortune cookie shows up *anywhere* in our query.
 
 ## Passing Values to/Configuring a Filter
@@ -161,7 +161,7 @@ If we *just* did this and refreshed, we've got a great error!
     Parameter 'discontinued' does not exist.
 
 This new approach means that when we enable the filter, we need to pass this
-value to it. In `FortuneCookieController`, the `enable()` method actually
+value to it. In `FortuneController`, the `enable()` method actually
 returns an instance of our `DiscontinuedFilter`. And now we can call `setParameter()`,
 with the parameter name as the first argument and the value we want to set
 it to as the second:
