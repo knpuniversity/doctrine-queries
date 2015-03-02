@@ -1,0 +1,27 @@
+diff --git a/src/AppBundle/Doctrine/DiscontinuedFilter.php b/src/AppBundle/Doctrine/DiscontinuedFilter.php
+index 0d739b0..80ec6f0 100644
+--- a/src/AppBundle/Doctrine/DiscontinuedFilter.php
++++ b/src/AppBundle/Doctrine/DiscontinuedFilter.php
+@@ -2,6 +2,21 @@
+ 
+ namespace AppBundle\Doctrine;
+ 
+-class DiscontinuedFilter
++use Doctrine\ORM\Mapping\ClassMetadata;
++use Doctrine\ORM\Query\Filter\SQLFilter;
++
++class DiscontinuedFilter extends SQLFilter
+ {
++    /**
++     * Gets the SQL query part to add to a query.
++     *
++     * @param ClassMetaData $targetEntity
++     * @param string $targetTableAlias
++     *
++     * @return string The constraint SQL if there is available, empty string otherwise.
++     */
++    public function addFilterConstraint(ClassMetadata $targetEntity, $targetTableAlias)
++    {
++        // ...
++    }
+ }

@@ -131,6 +131,16 @@
             "description": null
         },
         {
+            "id": "filter-create-basic-filter-class",
+            "name": "Filter: Create basic Filter class",
+            "description": null
+        },
+        {
+            "id": "filter-extend-class-with-empty-method",
+            "name": "Filter: Extend class with empty method",
+            "description": null
+        },
+        {
             "id": "filter-create-filter-class-and-basic-use",
             "name": "Filter: Create Filter class and basic use",
             "description": null
@@ -151,5 +161,5 @@
             "description": null
         }
     ],
-    "sha": "1c46089467fe8a7997866e3c39b24b2d4391cc1f"
+    "sha": "1d516b5b5b4fbe82fc58d2e31c809077fccecca7"
 }
