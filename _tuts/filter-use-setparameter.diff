@@ -1,17 +1,15 @@
 diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
-index 9f2e087..e01f266 100644
+index 4e5d7f4..f4b9e86 100644
 --- a/src/AppBundle/Controller/FortuneController.php
 +++ b/src/AppBundle/Controller/FortuneController.php
-@@ -14,10 +14,11 @@ class FortuneController extends Controller
-      */
-     public function homepageAction(Request $request)
+@@ -17,8 +17,9 @@ class FortuneController extends Controller
      {
--        $this->getDoctrine()
-+        $filter = $this->getDoctrine()
-             ->getEntityManager()
-             ->getFilters()
+         /** @var EntityManager $em */
+         $em = $this->getDoctrine()->getManager();
+-        $em->getFilters()
++        $filters = $em->getFilters()
              ->enable('fortune_cookie_discontinued');
-+        $filter->setParameter('discontinued', false);
++        $filters->setParameter('discontinued', false);
  
          $categoryRepository = $this->getDoctrine()
              ->getManager()

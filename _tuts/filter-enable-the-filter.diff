@@ -1,3 +1,28 @@
+diff --git a/src/AppBundle/Controller/FortuneController.php b/src/AppBundle/Controller/FortuneController.php
+index 9f2e087..4e5d7f4 100644
+--- a/src/AppBundle/Controller/FortuneController.php
++++ b/src/AppBundle/Controller/FortuneController.php
+@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+ use AppBundle\Entity\Category;
+ use Symfony\Component\HttpFoundation\Request;
++use Doctrine\ORM\EntityManager;
+ 
+ class FortuneController extends Controller
+ {
+@@ -14,9 +15,9 @@ class FortuneController extends Controller
+      */
+     public function homepageAction(Request $request)
+     {
+-        $this->getDoctrine()
+-            ->getEntityManager()
+-            ->getFilters()
++        /** @var EntityManager $em */
++        $em = $this->getDoctrine()->getManager();
++        $em->getFilters()
+             ->enable('fortune_cookie_discontinued');
+ 
+         $categoryRepository = $this->getDoctrine()
 diff --git a/src/AppBundle/Doctrine/DiscontinuedFilter.php b/src/AppBundle/Doctrine/DiscontinuedFilter.php
 index ed7f72e..d439de2 100644
 --- a/src/AppBundle/Doctrine/DiscontinuedFilter.php
