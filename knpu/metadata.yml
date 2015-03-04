@@ -28,7 +28,7 @@ chapters:
     select-specific-fields:
          video_key:  aw2hauvx7j
     raw-sql-queries:
-        is_finished: false
+         video_key:  gbhptob9hi
     reusing-queries-query-builder:
         is_finished: false
     filters:
