@@ -33,7 +33,7 @@ it until I'm working on my page's performance. On the homepage without a
 search, it's even *more* noticeable. We have *7* queries here: one for the
 categories, and one extra query to get the fortune cookies for *each* category
 in the list. That makes 2, 3, 4, 5, 6 and 7 queries. This is a classic problem
-called the n+1 problem.
+called the *n+1 problem*.
 
 And again, it's not the end of the world - so don't over-optimize. But let's
 fix it here.
