@@ -1,9 +1,9 @@
 diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
-index c6dc01e..4859fd7 100644
+index 299c0d8..edbff28 100644
 --- a/src/AppBundle/Entity/CategoryRepository.php
 +++ b/src/AppBundle/Entity/CategoryRepository.php
 @@ -17,6 +17,7 @@ class CategoryRepository extends EntityRepository
-         $dql = 'SELECT cat FROM AppBundle\Entity\Category cat ORDER BY cat.name ASC';
+         $dql = 'SELECT cat FROM AppBundle\Entity\Category cat ORDER BY cat.name DESC';
  
          $query = $this->getEntityManager()->createQuery($dql);
 +        var_dump($query->getSQL());die;

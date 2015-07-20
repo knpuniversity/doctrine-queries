@@ -1,12 +1,12 @@
 diff --git a/src/AppBundle/Entity/CategoryRepository.php b/src/AppBundle/Entity/CategoryRepository.php
-index c6dc01e..fc7f776 100644
+index 299c0d8..fc7f776 100644
 --- a/src/AppBundle/Entity/CategoryRepository.php
 +++ b/src/AppBundle/Entity/CategoryRepository.php
 @@ -14,9 +14,10 @@ class CategoryRepository extends EntityRepository
  {
      public function findAllOrdered()
      {
--        $dql = 'SELECT cat FROM AppBundle\Entity\Category cat ORDER BY cat.name ASC';
+-        $dql = 'SELECT cat FROM AppBundle\Entity\Category cat ORDER BY cat.name DESC';
 -
 -        $query = $this->getEntityManager()->createQuery($dql);
 +        $qb = $this->createQueryBuilder('cat')
