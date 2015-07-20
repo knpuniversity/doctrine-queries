@@ -95,7 +95,7 @@ results - this is what `findAll()` was doing in the background.
 
 ## Adding the ORDER BY
 
-To add the `ORDER BY`, it looks just like SQL. Add `ORDER BY`, then `cat.name DESC`:
+To add the `ORDER BY`, it looks just like SQL. Add `ORDER BY`, then `cat.name ASC`:
 
 [[[ code('03e0930390') ]]]
 
