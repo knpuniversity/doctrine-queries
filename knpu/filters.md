@@ -174,7 +174,7 @@ and we should see *really* low numbers. We do!
 ## Enabling a Filter Globally
 
 Through all of this, you might be asking: "What good is a filter if I need
-to enable it all the time." Well first, the nice thing about filters is that
+to enable it all the time". Well first, the nice thing about filters is that
 you *do* have this ability to enable or disable them if you need to.
 
 To enable a filter globally, you just need to follow these same steps in
@@ -191,7 +191,7 @@ For Symfony peeps, you'll recognize the code in my `services.yml`:
 
 It registers this as a service and the `tags` at the bottom says, "Hey, when
 Symfony boots, like right at the very beginning, call the `onKernelRequest`
-method." I'm also passing the `EntityManager` as the first argument to the
+method". I'm also passing the `EntityManager` as the first argument to the
 `__construct()` function. Because, ya know, we need that to enable filters.
 
 Let's go steal the enabling code from `FortuneController`, take it all out
