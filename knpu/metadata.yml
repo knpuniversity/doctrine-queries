@@ -2,7 +2,7 @@ title:  Go Pro with Doctrine Queries
 summary: |
     
     You already know how to query with SQL, so learning how to do complex
-    queries with Doctrine shoudl *not* give you a headache. In this series,
+    queries with Doctrine should *not* give you a headache. In this series,
     we'll learn the language Doctrine speaks (DQL), as well as the query
     builder object, how to use complex query features and even how to run
     good ol' fashioned raw SQL queries with Doctrine. Because hey, sometimes
@@ -28,8 +28,8 @@ chapters:
     select-specific-fields:
          video_key:  aw2hauvx7j
     raw-sql-queries:
-        is_finished: false
+         video_key:  gbhptob9hi
     reusing-queries-query-builder:
-        is_finished: false
+         video_key:  mwwm2skfz9
     filters:
-        is_finished: false
+         video_key:  mhtw0vnz6e
