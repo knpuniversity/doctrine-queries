@@ -9,7 +9,6 @@ summary: |
     simplicity rules :).
 
 illustration: doctrine-queries.png
-videoDownloadExtension: mov
 
 chapters:
     dql:
