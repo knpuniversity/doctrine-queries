@@ -14,22 +14,22 @@ videoDownloadExtension: mov
 chapters:
     dql:
         is_free:    true
-        video_key:  cpylary282
+        video_key:  140217450
     query-builder:
-        video_key:  ja6jl70qf8
+        video_key:  140217449
     and-where-or-where:
-        video_key:  au4hxjcmak
+        video_key:  140217452
     joins:
-        video_key:  odkbalje2q
+        video_key:  140217451
     joins-reduce-queries:
-        video_key:  6bt213mvsr
+        video_key:  140675937
     select-sum:
-        video_key:  belaxzbjls
+        video_key:  140675941
     select-specific-fields:
-         video_key:  aw2hauvx7j
+         video_key:  140675942
     raw-sql-queries:
-         video_key:  gbhptob9hi
+         video_key:  140675938
     reusing-queries-query-builder:
-         video_key:  mwwm2skfz9
+         video_key:  140675940
     filters:
-         video_key:  mhtw0vnz6e
+         video_key:  140675943
