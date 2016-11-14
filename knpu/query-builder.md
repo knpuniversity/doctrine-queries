@@ -40,7 +40,7 @@ let's see how our hard work translates into DQL:
 Refresh! Look closely:
 
 ```
-SELECT cat FROM AppBundle\Entity\Category ORDER BY cat.name DESC
+SELECT cat FROM AppBundle\Entity\Category cat ORDER BY cat.name DESC
 ```
 
 That's character-by-character the *exact* same DQL that we wrote before.
