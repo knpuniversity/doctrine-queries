@@ -28,7 +28,7 @@ and how many have been printed.
 The project is a small Symfony app - but all the Doctrine stuff translates
 to any app using the Doctrine ORM. We have 2 entities: `Category` and `FortuneCookie`:
 
-[[[ code('f96c6255e4') ]]]
+[[[ code('82d1ebc733') ]]]
 
 [[[ code('7611088470') ]]]
 
