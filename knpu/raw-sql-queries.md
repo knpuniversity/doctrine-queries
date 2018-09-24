@@ -34,8 +34,8 @@ database queries.
 
 So this DBAL Connection objects is *our* key to running raw database queries.
 Google for "Doctrine DBAL Query" so we can follow its docs. Find the
-[Data Retrieval And Manipulaton](http://doctrine-dbal.readthedocs.org/en/latest/reference/data-retrieval-and-manipulation.html)
-section. Scroll down a little to a good example:
+[Data Retrieval And Manipulaton][data-retrieval-and-manipulation] section.
+Scroll down a little to a good example:
 
 ```php
 $sql = "SELECT * FROM articles WHERE id = ?";
@@ -119,7 +119,7 @@ still learning it, totally use SQL. It's no big deal.
 ## Native Queries?
 
 One slightly confusing thing is that if you google for "doctrine raw sql",
-you'll find a different solution - something called [NativeQuery](http://doctrine-orm.readthedocs.org/en/latest/reference/native-sql.html).
+you'll find a different solution - something called [NativeQuery][native-sql].
 It sort of looks the same, just with some different function names. But there's
 this `ResultSetMapping` thing. Huh. This `NativeQuery` thing allows you to
 run a raw SQL query and then map that *back* to an object. That's pretty neat
@@ -127,3 +127,7 @@ I guess. But for me, if I'm writing some custom SQL, I'm fine just getting
 back an array of data. I can deal with that. The `ResultSetMapping` confuses
 me, and probably isn't worth the effort. But it's there if you want to geek
 out on it.
+
+
+[data-retrieval-and-manipulation]: https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/data-retrieval-and-manipulation.html
+[native-sql]: https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/native-sql.html
