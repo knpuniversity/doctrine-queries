@@ -45,6 +45,9 @@
         ]
     },
     "config": {
+        "platform": {
+            "php": "5.3.3"
+        },
         "bin-dir": "bin"
     },
     "extra": {
